@@ -8,9 +8,9 @@ http.createServer((request, response) => {
   let body = [];
   request.on('data', (chunk) => {
     body.push(chunk);
-  }).on('end', () => {
+  }).on('end', (req,res) => {
     body = Buffer.concat(body).toString();
-
+    body.push(res);
     const appSecret = process.env.APP_SECRET;
     const httpMethod = "POST";
     const URI = process.env.URL;
