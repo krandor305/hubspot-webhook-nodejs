@@ -6,8 +6,10 @@ const PORT = process.env.PORT || 5000
 
 http.createServer((request, response) => {
   let body = [];
-  request.on('data', (chunk) => {
+  request.on('data', (req,res,chunk) => {
     body.push(chunk);
+    console.log(req);
+    console.log(res);
   }).on('end', (req,res) => {
     console.log(req);
     console.log(res);
