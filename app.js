@@ -9,7 +9,7 @@ http.createServer((request, response) => {
   request.on('data', (chunk) => {
     body.push(chunk);
   }).on('end', (req,res) => {
-    body.push(res);
+    console.log(res);
     //body = Buffer.concat(body).toString();
     const appSecret = process.env.APP_SECRET;
     const httpMethod = "POST";
