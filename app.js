@@ -9,7 +9,7 @@ http.createServer((request, response) => {
   request.on('data', (req,res,chunk) => {
     body.push(chunk);
     console.log(req);
-    console.log(response);
+    body.push(response);
   }).on('end', (req,res) => {
     console.log(req);
     console.log(res);
